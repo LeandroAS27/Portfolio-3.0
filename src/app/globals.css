@@ -48,8 +48,9 @@ a { color: inherit; }
   .social-link { @apply rounded-full border border-border bg-surface; }
   .nav-link { @apply flex min-h-11 items-center rounded-lg px-3 text-sm font-bold text-muted; }
   .nav-link:hover, .nav-link[aria-current="true"] { @apply bg-surface-2 text-primary; }
-  .mobile-nav-link { @apply flex min-h-12 items-center rounded-lg px-4 text-lg font-bold text-muted; }
-  .mobile-nav-link:hover, .mobile-nav-link[aria-current="true"] { @apply bg-surface-2 text-primary; }
+  .mobile-menu-panel { background: var(--surface); color: var(--text); }
+  .mobile-nav-link { @apply flex min-h-12 items-center rounded-xl border border-border bg-surface-2 px-4 text-lg font-bold text-text; }
+  .mobile-nav-link:hover, .mobile-nav-link:focus-visible, .mobile-nav-link[aria-current="true"] { border-color: var(--primary); background: var(--primary); color: var(--on-primary); }
   .subsection-title { @apply mb-4 mt-12 text-2xl; }
   .project-grid { @apply grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3; }
   .project-card { @apply flex flex-col; }

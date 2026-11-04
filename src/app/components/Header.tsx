@@ -57,7 +57,7 @@ export default function Header({ content }: { content: PortfolioContent }) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-bg/95 backdrop-blur">
-      <div className="mx-auto flex h-18 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
+      <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
         <a href="#inicio" className="font-heading text-lg font-bold tracking-tight text-text" onClick={closeMenu}>
           {siteConfig.name}<span className="text-primary">.</span>
         </a>
@@ -85,11 +85,14 @@ export default function Header({ content }: { content: PortfolioContent }) {
         </div>
       </div>
       {open && (
-        <div className="fixed inset-0 top-18 z-50 bg-bg/80 backdrop-blur-sm lg:hidden" onMouseDown={(event) => event.target === event.currentTarget && closeMenu()}>
-          <div ref={menuRef} id="menu-mobile" className="ml-auto flex h-full w-[min(22rem,88vw)] flex-col gap-2 border-l border-border bg-surface p-6 shadow-xl">
+        <div className="fixed inset-x-0 top-[4.5rem] z-[60] h-[calc(100dvh-4.5rem)] bg-black/60 lg:hidden" onMouseDown={(event) => event.target === event.currentTarget && closeMenu()}>
+          <nav ref={menuRef} id="menu-mobile" aria-label={content.locale === "pt" ? "Menu móvel" : "Mobile menu"} className="mobile-menu-panel ml-auto flex h-[calc(100dvh-4.5rem)] w-[min(22rem,88vw)] flex-col gap-3 overflow-y-auto border-l border-border p-5 shadow-2xl sm:p-6">
+            <p className="mb-1 font-heading text-sm font-bold uppercase tracking-[0.16em] text-primary">
+              {content.locale === "pt" ? "Navegação" : "Navigation"}
+            </p>
             {ids.map((id, index) => <a key={id} href={`#${id}`} className="mobile-nav-link" aria-current={active === id ? "true" : undefined} onClick={closeMenu}>{labels[index]}</a>)}
             {siteConfig.cvAvailable && <a href={siteConfig.cvPath} download className="button-primary mt-3">{content.interface.downloadCv}</a>}
-          </div>
+          </nav>
         </div>
       )}
     </header>
