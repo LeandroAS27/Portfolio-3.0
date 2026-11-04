@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lato, Montserrat } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import AppProviders from "../components/AppProviders";
+import CloudflareAnalytics from "../components/CloudflareAnalytics";
 import JsonLd from "../components/JsonLd";
 import "../globals.css";
 
@@ -20,5 +21,5 @@ export const metadata: Metadata = {
 };
 
 export default function PortugueseLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="pt-BR" suppressHydrationWarning><body className={`${montserrat.variable} ${lato.variable}`}><AppProviders>{children}</AppProviders><JsonLd /></body></html>;
+  return <html lang="pt-BR" suppressHydrationWarning><body className={`${montserrat.variable} ${lato.variable}`}><AppProviders>{children}</AppProviders><JsonLd /><CloudflareAnalytics /></body></html>;
 }

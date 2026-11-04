@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lato, Montserrat } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import AppProviders from "../components/AppProviders";
+import CloudflareAnalytics from "../components/CloudflareAnalytics";
 import JsonLd from "../components/JsonLd";
 import "../globals.css";
 
@@ -18,5 +19,5 @@ export const metadata: Metadata = {
   icons: { icon: "/icon.svg", apple: "/apple-icon.png" },
 };
 export default function EnglishLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" suppressHydrationWarning><body className={`${montserrat.variable} ${lato.variable}`}><AppProviders>{children}</AppProviders><JsonLd /></body></html>;
+  return <html lang="en" suppressHydrationWarning><body className={`${montserrat.variable} ${lato.variable}`}><AppProviders>{children}</AppProviders><JsonLd /><CloudflareAnalytics /></body></html>;
 }
